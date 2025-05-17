@@ -1,0 +1,28 @@
+
+services:
+  server:
+    build: .
+    command: node server.js
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./templates:/app/templates
+      - ./api_tester_history.log:/app/api_tester_history.log
+    environment:
+      - NODE_ENV=development
+  tester:
+    build: .
+    command: ./api_tester.sh
+    environment:
+      - DISPLAY=${DISPLAY}
+    volumes:
+      - ./templates:/app/templates
+      - ./api_tester_history.log:/app/api_tester_history.log
+      - /tmp/.X11-unix:/tmp/.X11-unix
+    depends_on:
+      - server
+
+    # No DISPLAY or X11 needed for headless mode
+
+# Volumes are mounted for persistence and flexibility.
+# You can change the template used by headless-tester by editing the command.

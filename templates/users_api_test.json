@@ -1,0 +1,35 @@
+{
+  "method": "GET",
+  "url": "localhost:3000/users/1",
+  "headers": "",
+  "body": "",
+  "testcases": [
+    {
+      "desc": "test case 1 should pass",
+      "method": "GET",
+      "url": "localhost:3000/users/1",
+      "headers": "",
+      "body": "",
+      "expected_status": "200",
+      "expected_body": "Alice"
+    },
+    {
+      "desc": "test case 1 should pass",
+      "method": "GET",
+      "url": "localhost:3000/users/2",
+      "headers": "",
+      "body": "",
+      "expected_status": "200",
+      "expected_body": "Bob"
+    },
+    {
+      "desc": "test case 3 shold fail",
+      "method": "GET",
+      "url": "localhost:3000/users/3",
+      "headers": "",
+      "body": "",
+      "expected_status": "200",
+      "expected_body": "Mady"
+    }
+  ]
+}
